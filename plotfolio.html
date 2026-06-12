@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anju Saini | Data Analyst Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root{
+--bg:#071018;
+--card:#0d1724;
+--accent:#42d4ff;
+--text:#f4f8ff;
+}
+
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+body{
+font-family:Outfit,sans-serif;
+background:radial-gradient(circle at top,#11253d,#071018 60%);
+color:var(--text);
+overflow-x:hidden;
+}
+
+
+canvas{
+position:fixed;
+inset:0;
+z-index:-1;
+}
+
+
+section{
+padding:90px 8%;
+}
+
+
+#loader{
+position:fixed;
+inset:0;
+background:#04080d;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+
+.loader{
+width:150px;
+height:150px;
+border-radius:50%;
+border:4px solid rgba(66,212,255,.15);
+border-top-color:var(--accent);
+animation:spin 1.2s linear infinite;
+}
+
+
+@keyframes spin{
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+
+
+.hero{
+
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr;
+align-items:center;
+
+}
+
+
+
+h1{
+
+font-size:5rem;
+font-weight:800;
+background:linear-gradient(90deg,#fff,#42d4ff,#fff);
+background-size:200%;
+-webkit-background-clip:text;
+color:transparent;
+animation:shine 5s linear infinite;
+
+}
+
+
+
+@keyframes shine{
+
+to{
+background-position:200% center;
+}
+
+}
+
+
+
+.typing{
+
+font-size:1.5rem;
+color:#8fe8ff;
+height:40px;
+
+}
+
+
+
+.glass{
+
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(14px);
+border-radius:24px;
+padding:28px;
+
+}
+
+
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:25px;
+
+}
+
+
+
+.stat{
+
+text-align:center;
+padding:15px;
+border-radius:18px;
+background:rgba(66,212,255,.08);
+
+}
+
+
+
+h2{
+
+font-size:2.4rem;
+margin-bottom:30px;
+
+}
+
+
+
+.timeline-item,
+.project,
+.achievement,
+.skill-card{
+
+background:rgba(255,255,255,.04);
+padding:24px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.08);
+margin:20px 0;
+
+}
+
+
+
+.skills{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+
+}
+
+
+
+.projects{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+
+}
+
+
+
+.project:hover{
+
+transform:translateY(-8px);
+transition:.4s;
+
+}
+
+
+
+.contact a{
+
+color:#8fe8ff;
+text-decoration:none;
+
+}
+
+
+
+.reveal{
+
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+
+}
+
+
+
+.reveal.show{
+
+opacity:1;
+transform:none;
+
+}
+
+
+
+footer{
+
+text-align:center;
+padding:40px;
+color:#8fa7c0;
+
+}
+
+
+
+.action-buttons{
+
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:30px;
+
+}
+
+
+
+.btn{
+
+padding:14px 24px;
+border-radius:14px;
+text-decoration:none;
+color:white;
+font-weight:600;
+background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
+transition:.35s;
+backdrop-filter:blur(10px);
+
+}
+
+
+
+.btn:hover{
+
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(66,212,255,.3);
+border-color:#42d4ff;
+
+}
+
+
+
+.btn.primary{
+
+background:linear-gradient(135deg,#42d4ff,#246bff);
+border:none;
+
+}
+
+
+
+.cert-link{
+
+display:inline-block;
+margin-top:15px;
+color:#42d4ff;
+text-decoration:none;
+font-weight:600;
+
+}
+
+
+
+@media(max-width:900px){
+
+h1{
+font-size:3rem;
+}
+
+
+.skills{
+grid-template-columns:1fr;
+}
+
+
+.stats{
+grid-template-columns:1fr;
+}
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div id="loader">
+
+<div class="loader"></div>
+
+</div>
+
+
+<canvas id="bg"></canvas>
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<h1>Anju Saini</h1>
+
+
+<div class="typing" id="typing"></div>
+
+
+
+<p style="font-size:1.15rem;line-height:1.8;margin-top:20px">
+
+
+Data Analyst with 2+ years of experience delivering business intelligence solutions using SQL, Python, Power BI, Tableau and Azure Data Factory.
+
+
+</p>
+
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<h3>500K+</h3>
+
+<p>Records Analyzed</p>
+
+</div>
+
+
+<div class="stat">
+
+<h3>40%</h3>
+
+<p>Reporting Reduction</p>
+
+</div>
+
+
+<div class="stat">
+
+<h3>30%</h3>
+
+<p>Query Improvement</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="reveal">
+
+<h2>About Me</h2>
+
+
+<div class="glass">
+
+
+Former Software Developer turned Data Analyst, specializing in ETL pipelines, KPI reporting, dashboard development, predictive analytics and stakeholder-focused insights.
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="reveal">
+
+
+<h2>Experience</h2>
+
+
+<div class="timeline-item">
+
+
+<h3>Data Analyst Associate — Primotech</h3>
+
+<p>Oct 2023 – Mar 2025</p>
+
+
+<p>
+
+Built Power BI/Tableau dashboards, optimized SQL queries,
+engineered ETL pipelines and delivered business insights.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="timeline-item">
+
+
+<h3>Software Developer — Codeinit / Techangouts</h3>
+
+
+<p>Apr 2021 – Aug 2023</p>
+
+
+<p>
+
+Designed databases, improved reporting systems and developed backend data solutions.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="reveal">
+
+
+<h2>Core Skills</h2>
+
+
+<div class="skills">
+
+
+<div class="skill-card">Python</div>
+<div class="skill-card">SQL</div>
+<div class="skill-card">Excel</div>
+<div class="skill-card">Tableau</div>
+<div class="skill-card">Power BI</div>
+<div class="skill-card">Machine Learning</div>
+<div class="skill-card">EDA</div>
+<div class="skill-card">A/B Testing</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="reveal">
+
+
+<h2>Projects</h2>
+
+
+<div class="projects">
+
+
+
+<div class="project">
+
+<h3>Customer Churn Prediction</h3>
+
+<p>
+
+Predictive analytics solution using Python, Pandas and Scikit-Learn.
+
+</p>
+
+</div>
+
+
+
+
+<div class="project">
+
+<h3>Ecommerce Analytics Dashboard</h3>
+
+<p>
+
+Analyzed sales data and built KPI dashboards using SQL, Power BI and Tableau.
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="project">
+
+<h3>IPL Prediction System</h3>
+
+<p>
+
+ML model predicting match outcomes using historical data.
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="project">
+
+<h3>Health Risk Prediction</h3>
+
+<p>
+
+Built classification models with feature engineering and EDA.
+
+</p>
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="reveal">
+
+
+<h2>Achievements</h2>
+
+
+<div class="achievement">
+
+Reduced reporting time by 40% through analytics automation.
+
+</div>
+
+
+<div class="achievement">
+
+Improved SQL query performance by 30%.
+
+</div>
+
+
+<div class="achievement">
+
+Automated ETL workflows reducing manual effort.
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="reveal">
+
+
+<h2>Certifications</h2>
+
+
+<div class="projects">
+
+
+
+<div class="project">
+
+
+<h3>Data Analytics Essentials</h3>
+
+
+<p>
+
+Provider: Cisco Networking Academy
+
+</p>
+
+
+<a class="cert-link"
+href="https://www.credly.com/badges/4beb75d7-bf76-4388-8f49-0b99aa9fb70c/public_url"
+target="_blank">
+
+View Credential →
+
+</a>
+
+
+</div>
+
+
+
+
+
+<div class="project">
+
+
+<h3>Prompt Design in Vertex AI</h3>
+
+
+<p>
+
+Provider: Google Cloud
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="reveal contact">
+
+
+<h2>Contact</h2>
+
+
+<p>
+Phone: 9053163133
+</p>
+
+
+<p>
+Email: anju.saini123123123@gmail.com
+</p>
+
+
+
+<div class="action-buttons">
+
+
+<a href="Anju_Saini_CV_Data_Analyst_Role.pdf"
+download
+class="btn primary">
+
+📄 Download CV
+
+</a>
+
+
+
+<a href="mailto:anju.saini123123123@gmail.com"
+class="btn">
+
+✉️ Email
+
+</a>
+
+
+
+<a href="https://www.linkedin.com/in/anju-saini-099a87360"
+target="_blank"
+class="btn">
+
+🔗 LinkedIn
+
+</a>
+
+
+
+<a href="https://github.com/Anju-saini"
+target="_blank"
+class="btn">
+
+💻 GitHub
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<footer>
+
+Designed for Data Analytics & Business Intelligence Roles
+
+</footer>
+
+
+
+
+
+
+
+<script>
+
+
+setTimeout(()=>{
+
+document.getElementById('loader').style.display='none'
+
+},1500);
+
+
+
+
+
+const roles=[
+"Data Analyst",
+"Business Intelligence Analyst",
+"Aspiring Data Scientist"
+];
+
+
+let r=0,i=0,d=1;
+
+
+
+setInterval(()=>{
+
+
+let t=roles[r];
+
+document.getElementById('typing').textContent=t.slice(0,i);
+
+
+i+=d;
+
+
+if(i>t.length){
+d=-1;
+}
+
+
+if(i<0){
+
+d=1;
+r=(r+1)%roles.length;
+
+}
+
+
+},120);
+
+
+
+
+
+
+const observer=new IntersectionObserver(entries=>{
+
+
+entries.forEach(e=>{
+
+
+if(e.isIntersecting){
+
+e.target.classList.add('show');
+
+}
+
+
+});
+
+
+});
+
+
+
+document.querySelectorAll('.reveal')
+.forEach(x=>observer.observe(x));
+
+
+
+
+
+
+
+const c=document.getElementById('bg');
+
+const ctx=c.getContext('2d');
+
+
+
+function resize(){
+
+c.width=innerWidth;
+c.height=innerHeight;
+
+}
+
+
+resize();
+
+onresize=resize;
+
+
+
+
+let p=[...Array(60)].map(()=>({
+
+x:Math.random()*c.width,
+y:Math.random()*c.height,
+vx:(Math.random()-.5),
+vy:(Math.random()-.5)
+
+}));
+
+
+
+
+
+(function draw(){
+
+
+ctx.clearRect(0,0,c.width,c.height);
+
+
+for(let a of p){
+
+
+a.x+=a.vx;
+a.y+=a.vy;
+
+
+if(a.x<0||a.x>c.width)
+a.vx*=-1;
+
+
+if(a.y<0||a.y>c.height)
+a.vy*=-1;
+
+
+ctx.fillStyle="#42d4ff";
+
+ctx.fillRect(a.x,a.y,2,2);
+
+
+}
+
+
+requestAnimationFrame(draw);
+
+
+})();
+
+
+
+</script>
+
+
+</body>
+
+</html>
